@@ -5,15 +5,22 @@ import { useForm } from 'react-hook-form';
 //import { use } from '../../reto-5-todo-api-haudacia/src/routers/todo';
 
 const App = () => {
-  const url = 'http://localhost:3000/todo/1';
+  const url = 'http://localhost:3000/todos';
   const [task, setTask] = useState(null);
+  const [allTasks, setAllTasks] = useState();
   useEffect(() => {
     const getTask = async () => {
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error(response.status);
         const data = await response.json();
-        setTask(data.text);
+        const dataValues = Object.values(data);
+        const eachTask = dataValues.map((task, i) => {
+          <p key={i}>{task.fecha}</p>
+        });
+        console.log(typeof Object.values(data)[1].fecha);
+        console.log(eachTask);
+        setAllTasks(dataValues[1].fecha);
       } catch (error) {
         console.log(error);
       }
@@ -22,7 +29,7 @@ const App = () => {
     getTask();
   }, []);
 
-  return <p>{task}</p>
+  return <p>{allTasks}</p>
 };
 
 export default App;
