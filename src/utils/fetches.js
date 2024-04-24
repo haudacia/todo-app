@@ -1,17 +1,30 @@
-const url = "http://localhost:3000/todo";
-const url2 = "http://localhost:3000/todos";
-
 const getTasks = async () => {
-  try {
-    const response = await fetch(url2);
-    if (!response.ok) throw new Error(response.status);
-    const data = await response.json();
-  } catch (error) {
-    console.log(error);
-  }
-};
+  const url2 = "http://localhost:3000/todos";
 
-const deleteTask = ({ taskId }) => {
+  return fetch(url2)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      console.log(error);
+      throw error;
+    });
+};
+//   try {
+//     const response = await fetch(url2);
+//     if (!response.ok) throw new Error(response.status);
+//     return await response.json();
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+const deleteTask = (taskId) => {
+  const url = "http://localhost:3000/todo";
+
   return fetch(`${url}/${taskId}`, {
     method: "DELETE",
     headers: {
@@ -31,4 +44,5 @@ const deleteTask = ({ taskId }) => {
       throw error;
     });
 };
+
 export default { getTasks, deleteTask };

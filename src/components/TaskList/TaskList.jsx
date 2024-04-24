@@ -3,21 +3,20 @@ import styles from "./TaskList.module.css";
 
 import getTasks from "../../utils/fetches";
 import Task from "../Task/Task";
+import DeleteTaskHandler from "../DeleteTaskHandler/DeleteTaskHandler";
+const url2 = "http://localhost:3000/todos";
 
 const TaskList = () => {
   const [allTasks, setAllTasks] = useState([]);
 
   useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const tasks = await getTasks(); // Assuming getTasks returns a promise
+    getTasks()
+      .then((tasks) => {
         setAllTasks(tasks);
-      } catch (error) {
+      })
+      .catch((error) => {
         console.error("Error fetching tasks:", error);
-      }
-    };
-
-    fetchTasks();
+      });
   }, []);
 
   return (
@@ -29,6 +28,7 @@ const TaskList = () => {
             text={task.text}
             date={task.date}
             done={task.done}
+            onClick={DeleteTaskHandler}
           />
         </div>
       ))}

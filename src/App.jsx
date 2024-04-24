@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 //import AllTasks from './components/Tasks/Tasks';
 import CreateTask from "./components/CreateTask/CreateTask";
-import DeleteTaskHandler from "./components/DeleteTask/DeleteTask";
+import DeleteTaskHandler from "./components/DeleteTaskHandler/DeleteTaskHandler";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Layout from "./pages/Layout";
 import TaskList from "./components/TaskList/TaskList";

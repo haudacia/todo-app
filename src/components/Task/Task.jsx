@@ -1,17 +1,14 @@
 import DeleteTask from "../../utils/fetches";
 import Button from "../Button/Button";
+import DeleteTaskHandler from "../DeleteTaskHandler/DeleteTaskHandler";
 
-const Task = ({ id, text, date, done }) => {
-  const handleDelete = () => {
-    <DeleteTask taskId={id} />;
-  };
-
+const Task = ({ id, text, date, done, onClick }) => {
   return (
     <div>
       <Button onClick={() => (props.done = True)} id="button-done" />
       <p>{props.text}</p>
       <p>{props.date}</p>
-      <Button onClick={handleDelete} content="delete" />
+      <Button onClick={onClick} content="delete" />
     </div>
   );
 };
