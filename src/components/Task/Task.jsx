@@ -4,18 +4,17 @@ import DeleteTask from "../DeleteTask/DeleteTask";
 import styles from "./Task.module.css";
 
 
-const Task = ({ id, text, date, done, onClick }) => {
+const Task = ({ id, text, date, done }) => {
   return (
     //
     <div className={styles.wrapper}>
-      <Button onClick={onClick} id="done" content="done" />
+      <Button id={styles.switchDoneUndone} content="" />
       <div>
         <h3>{text}</h3>
         <p>{date}</p>
         <p>{done}</p>
-        <DeleteTask taskId={id} />
-
       </div>
+      <DeleteTask taskId={id}/>
     </div>
   );
 };

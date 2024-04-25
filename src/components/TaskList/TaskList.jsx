@@ -35,7 +35,6 @@ const TaskList = () => {
             text={task.text}
             date={task.date}
             done={task.done}
-            //onClick={<DeleteTask />}
           />
         </div>
       ))}

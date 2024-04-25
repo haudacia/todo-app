@@ -13,3 +13,19 @@
   border-radius: 35%;
   justify-self: flex-end;
 }
+
+#switchDoneUndone {
+  width: 35px;
+  height: 30px;
+  border-radius: 30px;
+  border: 1px solid;
+  
+}
+
+#isDone {
+  width: 35px;
+  height: 30px;
+  border-radius: 30px;
+  border: 1px solid;
+  background-color: fuchsia;
+}

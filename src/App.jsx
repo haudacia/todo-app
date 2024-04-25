@@ -3,6 +3,7 @@ import CreateTask from "./components/CreateTask/CreateTask";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import TaskList from "./components/TaskList/TaskList";
+import DeleteTask from "./components/DeleteTask/DeleteTask";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <div className={styles.container}>
         <h1>To-Do List</h1>
         <TaskList />
+
       </div>
     </>
   );

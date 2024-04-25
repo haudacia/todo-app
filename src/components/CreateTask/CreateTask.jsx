@@ -30,7 +30,7 @@ const CreateTask = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="text" {...register("text")} required={true} />
-      <input type="date" {...register("date")} />
+      <input type="datetime-local" {...register("date")} />
       <Button id={styles.addTask} content="✔" />
     </form>
   );
