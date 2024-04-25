@@ -2,5 +2,9 @@
 
 button {
   font-family: "Victor Mono";
-  font-size: 35px;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: rgb(202, 162, 255);
 }

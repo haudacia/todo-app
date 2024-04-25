@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
-button {
+#addTask {
   background-color: rgb(255, 255, 0);
-  font-family: "Victor Mono";
-  font-weight: 700;
-  font-size: 15px;
+  border: 0;
+  font-size: 20px;
 }
 
-button:hover {
-  background-color: rgb(180, 180, 180);
+#addTask:hover {
+  background-color: rgb(215, 145, 255);
 }

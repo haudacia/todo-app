@@ -20,7 +20,12 @@ h1 {
     Abril Fatface,
     serif;
 }
-
+h3 {
+  font-family:
+    Chivo Mono,
+    monospace;
+  font-weight: 250;
+}
 p {
   font-family:
     Chivo Mono,

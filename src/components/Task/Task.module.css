@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  width: 100%;
+  border: 1px solid #000000;
+  margin: 5%;
+  flex-wrap: nowrap;
+}
+
+#deleteButton {
+  background-color: rgb(255, 76, 27);
+  border-radius: 35%;
+  justify-self: flex-end;
+}

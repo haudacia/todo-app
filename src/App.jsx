@@ -1,60 +1,21 @@
-//import { response } from 'express';
 import styles from "./App.module.css";
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-//import AllTasks from './components/Tasks/Tasks';
 import CreateTask from "./components/CreateTask/CreateTask";
-import DeleteTaskHandler from "./components/DeleteTaskHandler/DeleteTaskHandler";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import TaskList from "./components/TaskList/TaskList";
 
 const App = () => {
-  //----
-  useEffect(() => {
-    const getTasks = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(response.status);
-        const data = await response.json();
-        setAllTasks(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getTasks();
-  }, []);
-  //if user wants only one task (/todo/:id)
-  const Tasks = ({ tasks }) => {
-    console.log(typeof tasks);
-    return (
-      <div id="tasks">
-        {tasks &&
-          tasks.map((task, i) => (
-            <div key={i} className={styles.taskInfos}>
-              <button>{task.done}</button>
-              <p>{task.text}</p>
-              <p>{task.date}</p>
-            </div>
-          ))}
-      </div>
-    );
-  };
-
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Tasks />} />
+
           <Route path="create-task" element={<CreateTask />} />
-          <Route path="delete-task" element={<DeleteTaskHandler />} />
         </Route>
       </Routes>
 
       <div className={styles.container}>
         <h1>To-Do List</h1>
-        <DeleteTaskHandler />
         <TaskList />
       </div>
     </>

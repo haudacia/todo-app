@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from "react";
 import styles from "./TaskList.module.css";
-
-import getTasks from "../../utils/fetches";
+//import getTasks from "../../utils/utils";
 import Task from "../Task/Task";
-import DeleteTaskHandler from "../DeleteTaskHandler/DeleteTaskHandler";
-const url2 = "http://localhost:3000/todos";
+import DeleteTask from "../DeleteTask/DeleteTask";
+const url = "http://localhost:3000/tasks";
 
+// Usage in parent component
 const TaskList = () => {
   const [allTasks, setAllTasks] = useState([]);
 
   useEffect(() => {
-    getTasks()
-      .then((tasks) => {
-        setAllTasks(tasks);
-      })
-      .catch((error) => {
-        console.error("Error fetching tasks:", error);
-      });
+    const getTasks = async () => {
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          const data = await response.json();
+          setAllTasks(data);
+        } else {
+          throw new Error(response.status);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getTasks();
   }, []);
 
   return (
@@ -28,7 +35,7 @@ const TaskList = () => {
             text={task.text}
             date={task.date}
             done={task.done}
-            onClick={DeleteTaskHandler}
+            //onClick={<DeleteTask />}
           />
         </div>
       ))}
@@ -44,7 +51,7 @@ import styles from "./TaskList.module.css";
 import getTasks from "../../utils/fetches";
 import Task from "../Task/Task";
 
-const url = "http://localhost:3000/todos";
+const url = "http://localhost:3000/tasks";
 
 const TaskList = () => {
   const [task, setTask] = useState(null);

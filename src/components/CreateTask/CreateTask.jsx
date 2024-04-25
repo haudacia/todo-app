@@ -1,12 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import styles from "./CreateTask.module.css";
+import Button from "../Button/Button";
+//import refreshPage from "../../utils/fetches";
 
 const CreateTask = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (formData) => {
-    const url = "http://localhost:3000/todos";
+    const url = "http://localhost:3000/tasks";
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -18,8 +20,8 @@ const CreateTask = () => {
       if (!response.ok) {
         throw new Error("Failed to add task");
       }
-      console.log("Task added successfully!");
-      console.log();
+      console.log("Task added successfully!", formData);
+      window.location.reload()
     } catch (error) {
       console.error("Error adding task:", error.message);
     }
@@ -27,9 +29,9 @@ const CreateTask = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" {...register("text")} placeholder="Task Text" />
+      <input type="text" {...register("text")} required={true} />
       <input type="date" {...register("date")} />
-      <button>add task</button>
+      <Button id={styles.addTask} content="✔" />
     </form>
   );
 };
