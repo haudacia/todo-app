@@ -7,5 +7,9 @@
 }
 
 #addTask:hover {
-  background-color: rgb(215, 145, 255);
+  background-color: rgb(0, 107, 30);
+}
+input {
+  min-height: 2em;
+  overflow-y: auto;
 }

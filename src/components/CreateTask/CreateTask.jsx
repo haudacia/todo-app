@@ -1,8 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import styles from "./CreateTask.module.css";
-import Button from "../Button/Button";
-//import refreshPage from "../../utils/fetches";
 
 const CreateTask = () => {
   const { register, handleSubmit } = useForm();
@@ -31,7 +29,7 @@ const CreateTask = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="text" {...register("text")} required={true} />
       <input type="datetime-local" {...register("date")} />
-      <Button id={styles.addTask} content="✔" />
+      <button type="submit" id={styles.addTask}>✔</button>
     </form>
   );
 };

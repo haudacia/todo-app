@@ -1,31 +1,22 @@
 .wrapper {
   display: flex;
   align-items: center;
-  gap: 10%;
+  gap: 5%;
   width: 100%;
-  border: 1px solid #000000;
   margin: 5%;
   flex-wrap: nowrap;
 }
 
 #deleteButton {
   background-color: rgb(255, 76, 27);
-  border-radius: 35%;
+  border-radius: 50px;
   justify-self: flex-end;
 }
 
 #switchDoneUndone {
-  width: 35px;
-  height: 30px;
+  min-width: 20px;
+  height: 20px;
   border-radius: 30px;
-  border: 1px solid;
-  
+  border: 2px solid;
 }
 
-#isDone {
-  width: 35px;
-  height: 30px;
-  border-radius: 30px;
-  border: 1px solid;
-  background-color: fuchsia;
-}

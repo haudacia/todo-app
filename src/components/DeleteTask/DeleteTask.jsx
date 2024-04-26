@@ -7,7 +7,6 @@ const DeleteTask = ({ taskId }) => {
   const deleteTask = async () => {
     const confirmed = window.confirm("Are you sure you want to delete this task?");
     if (confirmed) {
-
       try {
         await fetch(`${url}/${taskId}`, {
           method: "DELETE",

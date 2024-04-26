@@ -2,13 +2,17 @@ import Button from "../Button/Button";
 import DeleteTask from "../DeleteTask/DeleteTask";
 //import MarkAsDone from "../MarkAsDone";
 import styles from "./Task.module.css";
+import SwitchDoneUndone from "../SwitchDoneUndone/SwitchDoneUndone"
 
 
 const Task = ({ id, text, date, done }) => {
+  console.log(done);
   return (
-    //
     <div className={styles.wrapper}>
-      <Button id={styles.switchDoneUndone} content="" />
+      <SwitchDoneUndone 
+      taskId={id} 
+      taskDone={done} 
+      />
       <div>
         <h3>{text}</h3>
         <p>{date}</p>
@@ -20,3 +24,5 @@ const Task = ({ id, text, date, done }) => {
 };
 
 export default Task;
+
+
