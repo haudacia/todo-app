@@ -4,7 +4,13 @@
   gap: 5%;
   width: 100%;
   margin: 5%;
+
   flex-wrap: nowrap;
+}
+
+.wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.101);
+
 }
 
 #deleteButton {
@@ -20,3 +26,9 @@
   border: 2px solid;
 }
 
+input[type="checkbox"] {
+  width: 3em;
+  height: 3rem;
+  accent-color: rgb(214, 126, 255);
+  font-size: 4px;
+}

@@ -4,12 +4,10 @@ import styles from "./Navbar.module.css";
 const Navbar = () => {
   return (
     <nav>
-      <h1>To-Do App</h1>
-
       <ul>
         <li>
           <NavLink end className={styles.link} to="/">
-            my to-do list
+            to-dos
           </NavLink>
         </li>
         <li>

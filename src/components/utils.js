@@ -24,11 +24,7 @@ const deleteTask = async (taskId) => {
     });
 };
 
-const refreshPage = () => {
-  window.location.reload();
-};
-
-export default { getTasks, deleteTask, refreshPage };
+export { getTasks, deleteTask, url };
 
 /* previous unsuccessful attempt, without using axios
 const deleteTask = (taskId) => {
