@@ -1,4 +1,29 @@
 .container {
   display: flex;
   flex-direction: column;
+  border: 1px solid blue;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-family:
+    Chivo Mono,
+    monospace;
+  font-size: 1px;
+}
+
+h3 {
+  font-family:
+    Chivo Mono,
+    monospace;
+  font-weight: 400;
+}
+
+p {
+  font-family:
+    Chivo Mono,
+    monospace;
+  font-size: 10px;
+  font-weight: 150;
 }

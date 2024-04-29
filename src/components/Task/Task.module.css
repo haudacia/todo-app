@@ -2,15 +2,10 @@
   display: flex;
   align-items: center;
   gap: 5%;
-  width: 100%;
+  width: 50%;
   margin: 5%;
 
   flex-wrap: nowrap;
-}
-
-.wrapper:hover {
-  background-color: rgba(0, 0, 0, 0.101);
-
 }
 
 #deleteButton {
@@ -19,16 +14,13 @@
   justify-self: flex-end;
 }
 
-#switchDoneUndone {
-  min-width: 20px;
-  height: 20px;
-  border-radius: 30px;
-  border: 2px solid;
+input[type="checkbox"] {
+  width: 2em;
+  height: 2rem;
+  accent-color: rgb(171, 255, 188);
+  font-size: 9px;
 }
 
-input[type="checkbox"] {
-  width: 3em;
-  height: 3rem;
-  accent-color: rgb(214, 126, 255);
-  font-size: 4px;
+input {
+  font-size: 12px;
 }

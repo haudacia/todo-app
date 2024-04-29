@@ -10,11 +10,6 @@ const Navbar = () => {
             to-dos
           </NavLink>
         </li>
-        <li>
-          <NavLink end className={styles.link} to="/create-task">
-            +
-          </NavLink>
-        </li>
       </ul>
     </nav>
   );

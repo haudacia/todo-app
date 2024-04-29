@@ -1,47 +1,59 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import styles from "./CreateTask.module.css";
+import { useState } from 'react';
+import { url } from '../utils';
 
-const CreateTask = () => {
-  const { register, handleSubmit } = useForm();
 
-  const onSubmit = async (formData) => {
-    const url = "http://localhost:3000/tasks";
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+const CreateTask = ({ refreshTasks }) => {
+  const { register, handleSubmit, reset } = useForm();
+  const [isVisible, setIsVisible] = useState(false);
+
+  const onSubmit = (formData) => {
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to add task");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Task added successfully!", formData);
+        refreshTasks();
+        handleToggleVisibility();
+        reset('');
+      })
+      .catch((error) => {
+        console.error("Error adding task:", error.message);
       });
-      if (!response.ok) {
-        throw new Error("Failed to add task");
-      }
-      console.log("Task added successfully!", formData);
-      window.location.reload()
-    } catch (error) {
-      console.error("Error adding task:", error.message);
-    }
   };
-
+  const handleToggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" {...register("text")} required={true} />
-      <input type="datetime-local" {...register("date")} />
-      <button type="submit" title={"create task"} id={styles.addTask}>✔</button>
-    </form>
+    <div>
+      <button onClick={handleToggleVisibility} title='add new task'>+</button>
+      {isVisible && (
+        <div className={styles.newTaskContainer}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input type="text" {...register("text")} required={true} />
+            <input type="datetime-local" {...register("date")} />
+
+          </form>
+          <button type="submit" title={"create task"} id={styles.addTask}>
+            ok
+          </button>
+        </div>
+      )}
+
+    </div>
   );
 };
 
 export default CreateTask;
-
-/*
-const CreateTaskButton = ({ onClick }) => {
-  return (
-    <button onClick={onClick} className={styles.CreateTask}>
-      +
-    </button>
-  );
-};
-*/
