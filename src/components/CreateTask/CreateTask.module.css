@@ -7,8 +7,8 @@
   justify-content: space-around;
   align-items: flex-end;
   align-content: normal;
+  gap: 20px;
 }
-
 
 #addTask {
   background-color: rgba(0, 0, 0, 0.105);
@@ -19,6 +19,15 @@
   border-radius: 0px;
 }
 
+.createTask {
+  background-color: rgb(255, 255, 0);
+  width: 35px;
+}
+
+.createTask:hover {
+  background-color: rgb(255, 255, 255);
+}
+
 #addTask:hover {
   background-color: rgb(255, 255, 0);
 }
@@ -26,7 +35,7 @@
 input {
   display: flex;
   min-height: 3em;
-  border: 0px solid blue;
+  border: 0px;
   background-color: rgba(255, 255, 255, 0.421);
   align-items: flex-start;
   justify-content: space-between;

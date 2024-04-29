@@ -1,26 +1,36 @@
-.wrapper {
+.taskWrapper {
   display: flex;
   align-items: center;
-  gap: 5%;
-  width: 50%;
+  gap: 15%;
+  width: 100%;
   margin: 5%;
-
   flex-wrap: nowrap;
 }
 
-#deleteButton {
+#taskButtons {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+}
+
+.deleteButton {
   background-color: rgb(255, 76, 27);
   border-radius: 50px;
   justify-self: flex-end;
 }
 
-input[type="checkbox"] {
-  width: 2em;
-  height: 2rem;
-  accent-color: rgb(171, 255, 188);
-  font-size: 9px;
+input {
+  font-size: 10px;
 }
 
-input {
-  font-size: 12px;
+
+.isEditing {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  width: 80%;
+}
+
+#editInput {
+  justify-self: stretch;
 }

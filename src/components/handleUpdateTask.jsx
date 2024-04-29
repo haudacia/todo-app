@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { url } from './utils'
+import { formatDate } from './TaskList/TaskList';
 
 const handleUpdateTask = ({ id, textValue, dateValue, refreshTasks }) => {
 
     fetch(`${url}/${id}`, {
         method: "PATCH",
-        body: JSON.stringify({ text: textValue, date: dateValue }),
+        body: JSON.stringify({ text: textValue, date: formatDate(dateValue) }),
         headers: {
             "Content-Type": "application/json",
         },

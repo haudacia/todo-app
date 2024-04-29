@@ -2,13 +2,23 @@
 
 * {
   background-color: #e8dac3;
+  font-family: Victor Mono;
+  font-size: 11px;
 }
 
+
 .appContainer {
-  width: 40%;
+  width: 50%;
   display: flex;
-  border: 1px solid #000000;
-  outline: 1px dotted #000000;
+
   outline-offset: 5px;
   margin: 60px;
+}
+
+button {
+  min-width: 15px;
+  min-height: 15px;
+  border-radius: 20px;
+  border: 0px;
+  background-color: rgba(0, 0, 0, 0.165);
 }

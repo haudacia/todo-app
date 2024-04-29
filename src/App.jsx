@@ -1,5 +1,5 @@
 import styles from "./App.module.css";
-import TaskList from "./components/TaskList/TaskList";
+import { TaskList } from "./components/TaskList/TaskList";
 
 const App = () => {
   return (

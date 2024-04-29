@@ -4,7 +4,6 @@ import styles from "./CreateTask.module.css";
 import { useState } from 'react';
 import { url } from '../utils';
 
-
 const CreateTask = ({ refreshTasks }) => {
   const { register, handleSubmit, reset } = useForm();
   const [isVisible, setIsVisible] = useState(false);
@@ -38,17 +37,17 @@ const CreateTask = ({ refreshTasks }) => {
   };
   return (
     <div>
-      <button onClick={handleToggleVisibility} title='add new task'>+</button>
+      <button onClick={handleToggleVisibility} title='add new task' className={styles.createTask}>+</button>
       {isVisible && (
         <div className={styles.newTaskContainer}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input type="text" {...register("text")} required={true} />
             <input type="datetime-local" {...register("date")} />
-
+            <button type="submit" title={"create task"} id={styles.addTask}>
+              ok
+            </button>
           </form>
-          <button type="submit" title={"create task"} id={styles.addTask}>
-            ok
-          </button>
+
         </div>
       )}
 

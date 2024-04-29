@@ -1,21 +1,12 @@
-button {
-    min-width: 25px;
-    max-width: 25;
-    min-height: 25px;
-    max-height: 25px;
-    border-radius: 20px;
-    border: 1px solid;
-}
-
 .isDone {
     background-color: rgb(0, 0, 0);
 }
 
 button p {
     color: white;
-    font-family: serif;
-    font-size: 1.5em;
+    font-family: monospace;
+    font-size: 1em;
     text-align: center;
-    margin: -50%;
+    margin: -80%;
     background-color: rgba(0, 0, 0, 0);
 }

@@ -4,6 +4,16 @@ import Task from "../Task/Task";
 import { url } from "../utils";
 import CreateTask from "../CreateTask/CreateTask";
 
+
+const formatDate = (dateString) => {
+  console.log(dateString)
+  if (dateString) {
+    const date = new Date(dateString);
+    const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+    const datePart = date.toLocaleDateString('en-GB', options);
+    return `${datePart}h`;
+  }
+};
 const TaskList = () => {
   const [allTasks, setAllTasks] = useState([]);
   const [refresh, setRefresh] = useState(true);
@@ -30,14 +40,7 @@ const TaskList = () => {
     }
   }, [refresh]);
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    if (date) {
-      const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' };
-      const datePart = date.toLocaleDateString('en-GB', options);
-      return `${datePart}h`;
-    }
-  };
+
 
   return (
     <>
@@ -60,4 +63,4 @@ const TaskList = () => {
   );
 };
 
-export default TaskList;
+export { formatDate, TaskList };
