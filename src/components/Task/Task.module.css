@@ -30,12 +30,11 @@ button:hover {
 }
 
 #text {
-  font-family: monospace;
-  font-size: 14px;
   margin-top: 15px;
 }
 
 #date {
+  font-family: ;
   font-size: 11px;
 }
 
@@ -81,7 +80,6 @@ input {
 }
 
 .isEditing {
-  border: 1px solid blue;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -101,16 +99,12 @@ input {
 }
 
 #textInput {
-  font-family: monospace;
   font-size: 15px;
   min-height: 25px;
   overflow: scroll;
 }
 
 #dateInput {
-  font-family:
-    Chivo Mono,
-    monospace;
   font-size: 11px;
   min-height: 25px;
 }

@@ -29,7 +29,7 @@ input {
   border-radius: 100%;
   position: fixed;
   right: 5%;
-  top: 5%;
+  top: 0%;
 }
 
 .createTaskButton:hover {

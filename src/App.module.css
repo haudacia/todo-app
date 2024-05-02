@@ -1,14 +1,49 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+
+h1 {
+  font-family: Abril Fatface;
+  font-size: 4em;
+  text-decoration: underline;
+  font-style: italic;
+  letter-spacing: 5px;
+}
+
+/*h1 {
+  font-family: Abril Fatface;
+  font-size: 3em;
+  text-decoration: underline;
+}
+*/
+
+h2 {
+  font-family: Xanh Mono;
+  font-style: bol;
+  font-size: 2.5em;
+  letter-spacing: -2px;
+  font-style: italic;
+  padding-bottom: 10%;
+}
 
 * {
   background-color: #cec1c0;
-  font-family: Victor Mono;
-  font-size: 11px;
+  font-family: JetBrains Mono;
+  /*font-family: "Red Hat Mono"; */
 }
 
 .appContainer {
   display: flex;
+  flex-flow: column;
   width: 100%;
   flex-wrap: wrap;
-  flex-direction: column;
+  justify-content: center;
+  /* Horizontally center items */
+  align-items: center;
+  margin: 0px 0;
+  /* Vertically center items */
+}
+
+.appContainer>* {
+  margin: 0px 0;
+  /* Adjust the margin as needed */
 }

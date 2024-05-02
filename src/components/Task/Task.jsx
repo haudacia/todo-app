@@ -10,15 +10,12 @@ import { formatDateForUser, dateStrToObj, isToday } from "../utils";
 const Task = ({ id, text, date, done, refreshTasks }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [textValue, setTextValue] = useState(text);
-  // dateValue is used to match browser's (Chrome) format (YYYY-MM-DDThh:ss:...) for datetime-local type input type
-  // to deal with errors while editing/creating dated tasks
+  /* dateValue is used to match browser's (Chrome) 
+  format (YYYY-MM-DDThh:ss without Z at the end) 
+  for datetime-local input type to deal with errors 
+  while editing/creating dated tasks */
   const [dateValue, setDateValue] = useState(date && date.slice(0, -1));
   const [dateForUser, setDateForUser] = useState(formatDateForUser(date));
-  console.log(new Date().getDate())
-  console.log('date type (right after saving new task) is---', typeof dateValue);
-  //fetch (PATCH) requires date (string) to be a Date object 
-  console.log(isToday(new Date(dateValue)), new Date(dateValue));
-
 
   return (
     <div>
@@ -34,7 +31,11 @@ const Task = ({ id, text, date, done, refreshTasks }) => {
                 <a title="click to edit the task"
                   onClick={() => setIsEditing(true)}>
                   <p id={styles.text}>{text}</p>
-                  <p id={styles.date}>{(dateValue ? `${dateForUser}h` : '')}</p>
+                  <p id={styles.date}>
+                    {
+                      (dateValue ? `${formatDateForUser(dateValue)}` : '')
+                    }
+                  </p>
                 </a>
               </div>
             </div>

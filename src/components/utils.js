@@ -1,19 +1,55 @@
 const url = "http://localhost:3000/tasks";
 
 const formatDateForUser = (dateString) => {
-  const options = {
-    hour: 'numeric',
-    minute: '2-digit',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  };
-  if (dateString) {
-    //transforms string representing date input by user to Date object
-    return new Date(dateString).toLocaleString('es-ES', options);
+  let displayedDate = undefined;
+  const adjustTimezone = () => {
+    const options = {
+      hour: 'numeric',
+      minute: '2-digit',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    };
+    // if dateString is null (user didn't choose a date), adjustment is not performed
+    if (dateString) {
+      //transforms string representing date input by user to Date object
+      const objDateAdjustedTimeZone = new Date(dateString).toLocaleString('es-ES', options);
+      return objDateAdjustedTimeZone
+    }
   }
+  const isToday = () => {
+    const today = new Date()
+    const someDate = new Date(dateString)
+    return (
+      someDate.getDate() == today.getDate() &&
+      someDate.getMonth() == today.getMonth() &&
+      someDate.getFullYear() == today.getFullYear()
+    )
+  };
+
+  const isTomorrow = () => {
+    const today = new Date()
+    const someDate = new Date(dateString)
+    return (
+      someDate.getDate() == today.getDate() + 1 &&
+      someDate.getMonth() == today.getMonth() &&
+      someDate.getFullYear() == today.getFullYear()
+    )
+  };
+
+  if (isToday()) {
+    displayedDate = 'today'
+  } else if (isTomorrow()) {
+    displayedDate = 'tomorrow'
+  } else {
+    displayedDate = `${adjustTimezone()}h`
+  }
+  return displayedDate
 };
 
+//on browser, dates are type string for 
+// datetime-local input fields,
+// but fetches require date to be a Date object 
 const dateStrToObj = (dateString) => {
   if (dateString) {
     return new Date(dateString)
@@ -25,8 +61,9 @@ const showBrowserTimeZone = () => {
   console.log(tz);
 }
 
-const isToday = (someDate) => {
+const isToday = (someDateStr) => {
   const today = new Date()
+  const someDate = new Date(someDateStr)
   return someDate.getDate() == today.getDate() &&
     someDate.getMonth() == today.getMonth() &&
     someDate.getFullYear() == today.getFullYear()
