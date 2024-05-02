@@ -1,6 +1,47 @@
-import axios from "axios";
-
 const url = "http://localhost:3000/tasks";
+
+const formatDateForUser = (dateString) => {
+  const options = {
+    hour: 'numeric',
+    minute: '2-digit',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  };
+  if (dateString) {
+    //transforms string representing date input by user to Date object
+    return new Date(dateString).toLocaleString('es-ES', options);
+  }
+};
+
+const dateStrToObj = (dateString) => {
+  if (dateString) {
+    return new Date(dateString)
+  }
+}
+
+const showBrowserTimeZone = () => {
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  console.log(tz);
+}
+
+const isToday = (someDate) => {
+  const today = new Date()
+  return someDate.getDate() == today.getDate() &&
+    someDate.getMonth() == today.getMonth() &&
+    someDate.getFullYear() == today.getFullYear()
+};
+
+export {
+  url,
+  formatDateForUser,
+  dateStrToObj,
+  showBrowserTimeZone,
+  isToday
+}
+
+/*   ADD TO DEDICATED FILE LATER (all fetch operations)
+import axios from "axios";
 
 const getTasks = async () => {
   return axios
@@ -23,8 +64,7 @@ const deleteTask = async (taskId) => {
       throw error;
     });
 };
-
-export { getTasks, deleteTask, url };
+*/
 
 /* previous unsuccessful attempt, without using axios
 const deleteTask = (taskId) => {
