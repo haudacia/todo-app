@@ -1,36 +1,116 @@
+button {
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+button:hover {
+  transition: 0.7s;
+}
+
 .taskWrapper {
   display: flex;
-  align-items: center;
-  gap: 15%;
-  width: 100%;
-  margin: 5%;
+  justify-content: space-between;
   flex-wrap: nowrap;
 }
 
-#taskButtons {
-  display: flex;
-  flex-flow: column;
-  gap: 10px;
+.taskWrapper:hover {
+  cursor: pointer;
+  color: rgb(127, 58, 255);
 }
 
-.deleteButton {
-  background-color: rgb(255, 76, 27);
-  border-radius: 50px;
-  justify-self: flex-end;
+.statusAndTexts {
+  display: inherit;
+  margin-left: 5%;
+  width: 70%;
+  gap: 10%;
+}
+
+#text {
+  font-family: monospace;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+#date {
+  font-size: 11px;
+}
+
+.deleteTask {
+  width: 20px;
+  height: 20px;
+  display: none;
+  margin-top: 15px;
+}
+
+.taskWrapper:hover .deleteTask {
+  display: block;
+  transition: 0.9s;
+}
+
+#thrashIcon {
+  height: 100%;
+  /* Makes sure the image fills the entire button height */
+}
+
+.deleteTask:hover #thrashIcon {
+  display: none;
+  /* Hides original image on hover */
+}
+
+.deleteTask #hoverThrashIcon {
+  display: none;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+}
+
+.deleteTask:hover #hoverThrashIcon {
+  display: inline;
+  transform: scale(1.3);
+  cursor: pointer;
+  transition: 0.9s;
+  /* Scale the image on hover */
 }
 
 input {
   font-size: 10px;
 }
 
-
 .isEditing {
+  border: 1px solid blue;
   display: flex;
   flex-flow: column;
+  justify-content: space-between;
+  gap: 5%;
+  width: 100%;
   align-items: flex-start;
-  width: 80%;
 }
 
-#editInput {
-  justify-self: stretch;
+.editButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.editButtons button {
+  width: fit-content;
+  border-radius: 10px;
+}
+
+#textInput {
+  font-family: monospace;
+  font-size: 15px;
+  min-height: 25px;
+  overflow: scroll;
+}
+
+#dateInput {
+  font-family:
+    Chivo Mono,
+    monospace;
+  font-size: 11px;
+  min-height: 25px;
 }

@@ -24,7 +24,7 @@ const CreateTask = ({ refreshTasks }) => {
       })
       .then((data) => {
         console.log("Task added successfully!", formData);
-        refreshTasks();
+        refreshTasks(data);
         handleToggleVisibility();
         reset('');
       })
@@ -37,22 +37,28 @@ const CreateTask = ({ refreshTasks }) => {
   };
   return (
     <div>
-      <button onClick={handleToggleVisibility} title='add new task' className={styles.createTask}>+</button>
       {isVisible && (
         <div className={styles.newTaskContainer}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <input type="text" {...register("text")} required={true} />
             <input type="datetime-local" {...register("date")} />
-            <button type="submit" title={"create task"} id={styles.addTask}>
+            <button type="submit" title={"create task"} id={styles.submitTask}>
               ok
             </button>
           </form>
 
         </div>
       )}
-
+      <button
+        onClick={handleToggleVisibility}
+        title='add new task'
+        className={styles.createTaskButton}>
+        +
+      </button>
     </div>
   );
 };
+
+export const handleToggleVisibility = CreateTask.handleToggleVisibility;
 
 export default CreateTask;

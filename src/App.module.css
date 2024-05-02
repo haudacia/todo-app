@@ -1,24 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 
 * {
-  background-color: #e8dac3;
+  background-color: #cec1c0;
   font-family: Victor Mono;
   font-size: 11px;
 }
 
-
 .appContainer {
-  width: 50%;
   display: flex;
-
-  outline-offset: 5px;
-  margin: 60px;
-}
-
-button {
-  min-width: 15px;
-  min-height: 15px;
-  border-radius: 20px;
-  border: 0px;
-  background-color: rgba(0, 0, 0, 0.165);
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
