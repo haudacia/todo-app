@@ -16,7 +16,7 @@ const TaskList = () => {
     if (refresh) {
       const getTasks = async () => {
         try {
-          const response = await fetch(url);
+          const response = await fetch(`${process.env.REACT_APP_API_URL}`);
           if (response.ok) {
             const data = await response.json();
             setAllTasks(data);
