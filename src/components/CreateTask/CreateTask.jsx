@@ -9,7 +9,7 @@ const CreateTask = ({ refreshTasks }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const onSubmit = (formData) => {
-    fetch(url, {
+    fetch('https://todo-app-server-1.onrender.com', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
