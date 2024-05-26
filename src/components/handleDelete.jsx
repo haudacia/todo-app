@@ -4,7 +4,7 @@ import { url } from "./utils";
 const handleDelete = ({ id, refreshTasks }) => {
   const confirmed = window.confirm("Are you sure you want to delete this task?");
   if (confirmed) {
-    fetch(`${url}/${id}`, {
+    fetch(`https://todo-app-server-cc9x.onrender.com/tasks/${id}`, {
       method: "DELETE"
     })
       .then(() => refreshTasks())
