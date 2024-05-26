@@ -16,50 +16,52 @@ const TaskList = () => {
     if (refresh) {
       const getTasks = async () => {
         try {
-          const response = await fetch('https://todo-app-server-1.onrender.com/tasks', {
-            method: 'GET',
-            mode: 'no-cors', // Padrão é 'cors', então esta linha é opcional
-            credentials: 'include', // Se precisar enviar cookies
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          });
+          const response = await fetch('https://todo-app-server-1.onrender.com'
+          // , {
+          //   method: 'GET',
+          //   mode: 'no-cors', // Padrão é 'cors', então esta linha é opcional
+          //   credentials: 'include', // Se precisar enviar cookies
+          //   headers: {
+          //     'Content-Type': 'application/json'
+          //   }
+          })
+        );
 
-          if (response.ok) {
-            const data = await response.json();
-            setAllTasks(data);
-          } else {
-            throw new Error(response.status);
-          }
-        } catch (error) {
-          console.log(error)
-        }
+if (response.ok) {
+  const data = await response.json();
+  setAllTasks(data);
+} else {
+  throw new Error(response.status);
+}
+} catch (error) {
+  console.log(error)
+}
       };
-      getTasks();
-      setRefresh(false);
+getTasks();
+setRefresh(false);
     }
   }, [refresh]);
 
-  return (
-    <>
-      <CreateTask refreshTasks={refreshTasks} />
-      <div id="tasks" className={styles.taskListContainer}>
-        {allTasks.map((task, i) => (
-          <div key={i}>
-            <Task
-              id={task.id}
-              text={task.text}
-              date={task.date}
-              done={task.done}
-              refresh={refresh}
-              refreshTasks={refreshTasks}
-            />
-            <hr />
-          </div>
-        ))}
-      </div>
-    </>
-  );
+return (
+  <>
+    <CreateTask refreshTasks={refreshTasks} />
+    <div id="tasks" className={styles.taskListContainer}>
+      {allTasks.map((task, i) => (
+        <div key={i}>
+          <Task
+            id={task.id}
+            text={task.text}
+            date={task.date}
+            done={task.done}
+            refresh={refresh}
+            refreshTasks={refreshTasks}
+          />
+          <hr />
+        </div>
+      ))}
+    </div>
+  </>
+);
 };
 
 export { TaskList };
