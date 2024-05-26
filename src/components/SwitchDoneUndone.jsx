@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './SwitchDoneUndone.module.css'
 import { url } from "./utils";
 
-const ToggleTaskStatus = ({ id, done }) => {
+const ToggleTaskStatus = ({ _id, done }) => {
   const [taskStatus, setTaskStatus] = useState(done);
 
   const handleToggleClick = () => {
@@ -12,8 +12,8 @@ const ToggleTaskStatus = ({ id, done }) => {
   };
 
   const updateTaskStatus = async (updatedStatus) => {
-    console.log(id)
-    await fetch(`${url}/${id}`, {
+    console.log(_id)
+    await fetch(`${url}/${_id}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
