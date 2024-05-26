@@ -11,6 +11,7 @@ const CreateTask = ({ refreshTasks }) => {
   const onSubmit = (formData) => {
     fetch('https://todo-app-server-1.onrender.com', {
       method: "POST",
+      credentials: 'include', // Incluir credenciais se necessário
       headers: {
         "Content-Type": "application/json",
       },
