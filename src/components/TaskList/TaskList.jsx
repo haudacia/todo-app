@@ -6,7 +6,6 @@ import CreateTask from "../CreateTask/CreateTask";
 import { handleToggleVisibility } from "../CreateTask/CreateTask";
 
 
-
 const TaskList = () => {
   const [allTasks, setAllTasks] = useState([]);
   const [refresh, setRefresh] = useState(true);
