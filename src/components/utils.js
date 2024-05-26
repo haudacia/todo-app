@@ -1,4 +1,4 @@
-const url = "https://todo-app-server-two.vercel.app/";
+const url = "https://todo-app-server-jet.vercel.app/";
 
 const formatDateForUser = (dateString) => {
   let displayedDate = undefined;
