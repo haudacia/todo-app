@@ -16,7 +16,7 @@ const TaskList = () => {
     if (refresh) {
       const getTasks = async () => {
         try {
-          const response = await fetch('https://todo-app-server-1.onrender.com');
+          const response = await fetch('https://todo-app-server-1.onrender.com/tasks');
           if (response.ok) {
             const data = await response.json();
             setAllTasks(data);
