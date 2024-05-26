@@ -9,7 +9,7 @@ const CreateTask = ({ refreshTasks }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const onSubmit = (formData) => {
-    fetch('https://todo-app-server-1.onrender.com', {
+    fetch('https://todo-app-3brv.onrender.com', {
       method: "POST",
       mode: 'no-cors', // Isso impede que você acesse a resposta
       credentials: 'include', // Incluir credenciais se necessário
