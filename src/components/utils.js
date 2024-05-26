@@ -1,4 +1,4 @@
-const url = "https://todo-app-server-jet.vercel.app/";
+const url = "http://localhost:3000/tasks";
 
 const formatDateForUser = (dateString) => {
   let displayedDate = undefined;
