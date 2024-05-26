@@ -18,7 +18,7 @@ const TaskList = () => {
         try {
           const response = await fetch('https://todo-app-server-1.onrender.com', {
             method: 'GET',
-            mode: 'cors', // Padrão é 'cors', então esta linha é opcional
+            mode: 'no-cors', // Padrão é 'cors', então esta linha é opcional
             credentials: 'include', // Se precisar enviar cookies
             headers: {
               'Content-Type': 'application/json'
