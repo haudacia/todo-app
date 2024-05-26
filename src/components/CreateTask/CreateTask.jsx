@@ -9,57 +9,55 @@ const CreateTask = ({ refreshTasks }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const onSubmit = (formData) => {
-    fetch('https://todo-app-server-cc9x.onrender.com/tasks', {
-      method: "POST",
-      credentials: 'include', // Incluir credenciais se necessário
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to add task");
+    const addTask = async () => {
+      try {
+        const response = await fetch('https://todo-app-server-cc9x.onrender.com/tasks', {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setAllTasks(data);
+        } else {
+          throw new Error(response.status);
         }
-        return res.json();
-      })
-      .then((data) => {
-        console.log("Task added successfully!", formData);
-        refreshTasks(data);
-        handleToggleVisibility();
-        reset('');
-      })
-      .catch((error) => {
-        console.error("Error adding task:", error.message);
-      });
+      } catch (error) {
+        console.log(error)
+      }
+
+      addTask()
+    };
+    const handleToggleVisibility = () => {
+      setIsVisible(!isVisible);
+    };
+    return (
+      <div>
+        {isVisible && (
+          <div className={styles.newTaskContainer}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input type="text" {...register("text")} required={true} />
+              <input type="datetime-local" {...register("date")} />
+              <button type="submit" title={"create task"} id={styles.submitTask}>
+                ok
+              </button>
+            </form>
+
+          </div>
+        )}
+        <button
+          onClick={handleToggleVisibility}
+          title='add new task'
+          className={styles.createTaskButton}>
+          +
+        </button>
+      </div>
+    );
   };
-  const handleToggleVisibility = () => {
-    setIsVisible(!isVisible);
-  };
-  return (
-    <div>
-      {isVisible && (
-        <div className={styles.newTaskContainer}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" {...register("text")} required={true} />
-            <input type="datetime-local" {...register("date")} />
-            <button type="submit" title={"create task"} id={styles.submitTask}>
-              ok
-            </button>
-          </form>
 
-        </div>
-      )}
-      <button
-        onClick={handleToggleVisibility}
-        title='add new task'
-        className={styles.createTaskButton}>
-        +
-      </button>
-    </div>
-  );
-};
+  export const handleToggleVisibility = CreateTask.handleToggleVisibility;
 
-export const handleToggleVisibility = CreateTask.handleToggleVisibility;
-
-export default CreateTask;
+  export default CreateTask;
