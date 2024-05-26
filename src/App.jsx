@@ -6,7 +6,6 @@ const App = () => {
     <>
       <div className={styles.appContainer}>
         <h1>to-dos</h1>
-        <h2>what do you want to do next?</h2>
         <TaskList />
       </div>
     </>
