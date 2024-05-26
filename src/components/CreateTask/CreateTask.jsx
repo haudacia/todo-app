@@ -12,6 +12,7 @@ const CreateTask = ({ refreshTasks }) => {
     try {
       const response = await fetch('https://todo-app-server-cc9x.onrender.com/tasks', {
         method: 'POST',
+        mode: "no-cors",
         headers: {
           'Content-Type': 'application/json',
         },
