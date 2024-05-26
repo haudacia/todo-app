@@ -9,7 +9,7 @@ const CreateTask = ({ refreshTasks }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const onSubmit = (formData) => {
-    fetch(`http://localhost:${process.env.PORT || 3001}/tasks`, {
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
