@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import { url } from './utils'
-import { formatDate } from './TaskList/TaskList';
 
-const handleUpdateTask = ({ id, textValue, dateValue, refreshTasks }) => {
+const handleUpdateTask = ({ id, textValue, dateValue, refreshTasks, date }) => {
+    console.log('--------------dateValue received is:', dateValue);
 
     fetch(`${url}/${id}`, {
         method: "PATCH",
-        body: JSON.stringify({ text: textValue, date: formatDate(dateValue) }),
+        body: JSON.stringify({ id, text: textValue, date: dateValue ? dateValue : '' }),
         headers: {
             "Content-Type": "application/json",
         },
@@ -14,6 +13,7 @@ const handleUpdateTask = ({ id, textValue, dateValue, refreshTasks }) => {
         .then((res) => res.json())
         .then((data) => {
             refreshTasks(data);
+            console.log('date is:', date)
         });
 };
 

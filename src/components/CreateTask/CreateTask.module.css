@@ -2,41 +2,47 @@
 
 .newTaskContainer {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: flex-end;
-  align-content: normal;
-  gap: 20px;
-}
-
-#addTask {
-  background-color: rgba(0, 0, 0, 0.105);
-  border: 0;
-  font-size: 10px;
-  width: 30px;
-  height: 30px;
-  border-radius: 0px;
-}
-
-.createTask {
-  background-color: rgb(255, 255, 0);
-  width: 35px;
-}
-
-.createTask:hover {
-  background-color: rgb(255, 255, 255);
-}
-
-#addTask:hover {
-  background-color: rgb(255, 255, 0);
+  width: 300px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin: auto;
+  margin-top: 50px
 }
 
 input {
-  display: flex;
-  min-height: 3em;
-  border: 0px;
-  background-color: rgba(255, 255, 255, 0.421);
-  align-items: flex-start;
-  justify-content: space-between;
+  border-radius: 5px;
+  width: 100%;
+  height: 2em;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgba(232, 217, 217, 0.982);
+  justify-content: flex-start;
+}
+
+.createTaskButton {
+  min-width: 2em;
+  min-height: 2em;
+  font-size: 2em;
+  text-align: center;
+  font-weight: bolder;
+  font-family: sans-serif;
+  border-radius: 100%;
+  position: fixed;
+  right: 5%;
+  top: 0%;
+}
+
+.createTaskButton:hover {
+  background-color: rgb(255, 255, 0);
+}
+
+#submitTask {
+  background-color: rgb(255, 231, 231);
+  border-radius: 10px;
+  font-size: 10px;
+  width: 30px;
+}
+
+#submitTask:hover {
+  background-color: rgb(255, 255, 0);
 }
