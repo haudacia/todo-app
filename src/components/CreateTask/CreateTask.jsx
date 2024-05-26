@@ -1,38 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import styles from "./CreateTask.module.css";
+import { useState } from 'react';
 import { url } from '../utils';
 
 const CreateTask = ({ refreshTasks }) => {
   const { register, handleSubmit, reset } = useForm();
   const [isVisible, setIsVisible] = useState(false);
 
-  const onSubmit = async (formData) => {
-    try {
-      const response = await fetch('https://todo-app-server-cc9x.onrender.com/tasks', {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+  const onSubmit = (formData) => {
+    fetch('https://todo-app-server-cc9x.onrender.com/tasks', {
+      method: "POST",
+      credentials: 'include', // Incluir credenciais se necessário
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to add task");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Task added successfully!", formData);
+        refreshTasks(data);
+        handleToggleVisibility();
+        reset('');
+      })
+      .catch((error) => {
+        console.error("Error adding task:", error.message);
       });
-
-      if (response.ok) {
-        const data = await response.json();
-        setAllTasks(data);
-      } else {
-        throw new Error(response.status);
-      }
-    } catch (error) {
-      console.log(error)
-    }
   };
-
   const handleToggleVisibility = () => {
     setIsVisible(!isVisible);
   };
-
   return (
     <div>
       {isVisible && (
@@ -44,6 +47,7 @@ const CreateTask = ({ refreshTasks }) => {
               ok
             </button>
           </form>
+
         </div>
       )}
       <button
@@ -55,5 +59,7 @@ const CreateTask = ({ refreshTasks }) => {
     </div>
   );
 };
+
+export const handleToggleVisibility = CreateTask.handleToggleVisibility;
 
 export default CreateTask;
