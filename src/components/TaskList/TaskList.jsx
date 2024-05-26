@@ -16,7 +16,15 @@ const TaskList = () => {
     if (refresh) {
       const getTasks = async () => {
         try {
-          const response = await fetch('https://todo-app-server-1.onrender.com');
+          const response = await fetch('https://todo-app-server-1.onrender.com', {
+            method: 'GET',
+            mode: 'cors', // Padrão é 'cors', então esta linha é opcional
+            credentials: 'include', // Se precisar enviar cookies
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+
           if (response.ok) {
             const data = await response.json();
             setAllTasks(data);
