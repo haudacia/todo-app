@@ -11,8 +11,6 @@ const CreateTask = ({ refreshTasks }) => {
   const onSubmit = (formData) => {
     fetch('https://todo-app-server-cc9x.onrender.com/tasks', {
       method: "POST",
-      mode: 'no-cors', // Isso impede que você acesse a resposta
-      credentials: 'include', // Incluir credenciais se necessário
       headers: {
         "Content-Type": "application/json",
       },
