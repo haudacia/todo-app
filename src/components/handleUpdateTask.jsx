@@ -6,7 +6,6 @@ const handleUpdateTask = ({ id, textValue, dateValue, refreshTasks, date }) => {
     fetch(`${url}/tasks/${id}`, {
         method: "PATCH",
         body: JSON.stringify({
-            id,
             text: textValue,
             date: dateValue ? dateValue : ''
         }),
