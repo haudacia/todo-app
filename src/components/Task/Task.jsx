@@ -71,7 +71,7 @@ const Task = ({ _id, text, date, done, refreshTasks }) => {
             <div className={styles.editButtons}>
               <button id={styles.createTask}
                 onClick={() => {
-                  handleUpdateTask({ id, textValue, dateValue: dateStrToObj(dateValue), refreshTasks, date });
+                  handleUpdateTask({ _id, textValue, dateValue: dateStrToObj(dateValue), refreshTasks, date });
                   setIsEditing(false);
                   setDateForUser(formatDateForUser(dateValue))
                 }}
