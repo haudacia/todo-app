@@ -15,7 +15,7 @@ const ToggleTaskStatus = ({ id, done }) => {
     console.log(id)
     await fetch(`${url}/tasks/${id}`, {
       method: "PATCH",
-      credentials: 'include',
+      //credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
