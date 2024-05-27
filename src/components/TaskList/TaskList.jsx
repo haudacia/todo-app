@@ -39,7 +39,7 @@ const TaskList = () => {
         {allTasks.map((task, i) => (
           <div key={i}>
             <Task
-              _id={task._id}
+              _id={task._id.toString()}
               text={task.text}
               date={task.date}
               done={task.done}

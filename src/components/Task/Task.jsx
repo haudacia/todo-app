@@ -16,6 +16,8 @@ const Task = ({ _id, text, date, done, refreshTasks }) => {
   while editing/creating dated tasks */
   const [dateValue, setDateValue] = useState(date && date.slice(0, -1));
   const [dateForUser, setDateForUser] = useState(formatDateForUser(date));
+  console.log(typeof _id)
+  console.log(typeof text)
 
   return (
     <div>
