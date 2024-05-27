@@ -28,7 +28,7 @@ const TaskList = () => {
         }
       };
       getTasks();
-      console.log(allTasks)
+      console.log(allTasks[0])
       setRefresh(false);
     }
   }, [refresh]);
