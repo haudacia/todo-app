@@ -13,7 +13,7 @@ const ToggleTaskStatus = ({ id, done }) => {
 
   const updateTaskStatus = async (updatedStatus) => {
     console.log(id)
-    await fetch(`${url}/${id}`, {
+    await fetch(`${url}/tasks/${id}`, {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
