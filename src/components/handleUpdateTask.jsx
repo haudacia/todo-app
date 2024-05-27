@@ -3,7 +3,7 @@ import { url } from './utils'
 const handleUpdateTask = ({ id, textValue, dateValue, refreshTasks, date }) => {
     console.log('--------------dateValue received is:', dateValue);
 
-    fetch(`${url}/${id}`, {
+    fetch(`${url}/tasks/${id}`, {
         method: "PATCH",
         body: JSON.stringify({ id, text: textValue, date: dateValue ? dateValue : '' }),
         headers: {

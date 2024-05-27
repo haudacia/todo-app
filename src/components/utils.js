@@ -1,4 +1,4 @@
-const url = "http://localhost:3000/tasks";
+const url = "https://todo-app-server-cc9x.onrender.com";
 
 const formatDateForUser = (dateString) => {
   let displayedDate = undefined;
