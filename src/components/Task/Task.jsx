@@ -17,6 +17,7 @@ const Task = ({ _id, text, date, done, refreshTasks }) => {
   const [dateValue, setDateValue] = useState(date && date.slice(0, -1));
   const [dateForUser, setDateForUser] = useState(formatDateForUser(date));
   console.log(_id)
+  console.log(text)
 
   return (
     <div>
@@ -25,7 +26,7 @@ const Task = ({ _id, text, date, done, refreshTasks }) => {
           <div className={styles.taskWrapper}>
             <div className={styles.statusAndTexts}>
               {<ToggleTaskStatus
-                _id={_id}
+                id={_id}
                 done={done}
               />}
               <div className={styles.texts}>
