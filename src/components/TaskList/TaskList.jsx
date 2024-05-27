@@ -28,7 +28,6 @@ const TaskList = () => {
         }
       };
       getTasks();
-      console.log(allTasks[0])
       setRefresh(false);
     }
   }, [refresh]);
@@ -40,7 +39,7 @@ const TaskList = () => {
         {allTasks.map((task, i) => (
           <div key={i}>
             <Task
-              id={task._id}
+              _id={task._id}
               text={task.text}
               date={task.date}
               done={task.done}
