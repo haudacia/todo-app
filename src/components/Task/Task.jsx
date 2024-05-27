@@ -7,7 +7,7 @@ import handleUpdateTask from "../handleUpdateTask";
 import ToggleTaskStatus from "../SwitchDoneUndone";
 import { formatDateForUser, dateStrToObj, isToday } from "../utils";
 
-const Task = ({ _id, text, date, done, refreshTasks }) => {
+const Task = ({ id, text, date, done, refreshTasks }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [textValue, setTextValue] = useState(text);
   /* dateValue is used to match browser's (Chrome) 
@@ -16,7 +16,7 @@ const Task = ({ _id, text, date, done, refreshTasks }) => {
   while editing/creating dated tasks */
   const [dateValue, setDateValue] = useState(date && date.slice(0, -1));
   const [dateForUser, setDateForUser] = useState(formatDateForUser(date));
-  console.log(typeof _id)
+  console.log(typeof id)
   console.log(typeof text)
 
   return (
@@ -26,7 +26,7 @@ const Task = ({ _id, text, date, done, refreshTasks }) => {
           <div className={styles.taskWrapper}>
             <div className={styles.statusAndTexts}>
               {<ToggleTaskStatus
-                id={_id}
+                id={id}
                 done={done}
               />}
               <div className={styles.texts}>
@@ -43,7 +43,7 @@ const Task = ({ _id, text, date, done, refreshTasks }) => {
             </div>
 
             <a
-              onClick={() => handleDelete({ _id, refreshTasks })}
+              onClick={() => handleDelete({ id, refreshTasks })}
               className={styles.deleteTask}>
               <img id={styles.thrashIcon} src={thrashIcon} />
               <img id={styles.hoverThrashIcon} src={hoverThrashIcon} />
@@ -71,7 +71,7 @@ const Task = ({ _id, text, date, done, refreshTasks }) => {
             <div className={styles.editButtons}>
               <button id={styles.createTask}
                 onClick={() => {
-                  handleUpdateTask({ _id, textValue, dateValue: dateStrToObj(dateValue), refreshTasks, date });
+                  handleUpdateTask({ id, textValue, dateValue: dateStrToObj(dateValue), refreshTasks, date });
                   setIsEditing(false);
                   setDateForUser(formatDateForUser(dateValue))
                 }}
