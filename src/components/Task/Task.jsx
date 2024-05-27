@@ -25,7 +25,7 @@ const Task = ({ _id, text, date, done, refreshTasks }) => {
           <div className={styles.taskWrapper}>
             <div className={styles.statusAndTexts}>
               {<ToggleTaskStatus
-                id={_id}
+                _id={_id}
                 done={done}
               />}
               <div className={styles.texts}>
@@ -42,7 +42,7 @@ const Task = ({ _id, text, date, done, refreshTasks }) => {
             </div>
 
             <a
-              onClick={() => handleDelete({ id, refreshTasks })}
+              onClick={() => handleDelete({ _id, refreshTasks })}
               className={styles.deleteTask}>
               <img id={styles.thrashIcon} src={thrashIcon} />
               <img id={styles.hoverThrashIcon} src={hoverThrashIcon} />
