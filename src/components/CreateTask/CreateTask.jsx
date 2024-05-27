@@ -26,7 +26,8 @@ const CreateTask = ({ refreshTasks }) => {
         handleToggleVisibility();
         reset('');
       } else {
-        throw new Error("Failed to add task");
+        const errorData = await response.json();
+        throw new Error(`Failed to add task: ${errorData.message}`);
       }
     } catch (error) {
       console.error("Error adding task:", error.message);
