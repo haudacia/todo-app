@@ -1,8 +1,7 @@
 import { url } from './utils'
 
 const handleUpdateTask = ({ id, textValue, dateValue, refreshTasks, date }) => {
-    console.log('--------------dateValue received is:', dateValue);
-
+    //console.log('--------------dateValue received is:', dateValue);
     fetch(`${url}/tasks/${id}`, {
         method: "PATCH",
         body: JSON.stringify({
@@ -16,7 +15,7 @@ const handleUpdateTask = ({ id, textValue, dateValue, refreshTasks, date }) => {
         .then((res) => res.json())
         .then((data) => {
             refreshTasks(data);
-            console.log('date is:', date)
+            //console.log('date is:', date)
         });
 };
 
