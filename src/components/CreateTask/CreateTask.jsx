@@ -37,7 +37,7 @@ const CreateTask = ({ refreshTasks }) => {
     setIsVisible(!isVisible);
   };
   return (
-    <div>
+    <div style={{ height: '2em' }}>
       {isVisible && (
         <div className={styles.newTaskContainer}>
           <form onSubmit={handleSubmit(onSubmit)}>
