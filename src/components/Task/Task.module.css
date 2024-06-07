@@ -92,7 +92,8 @@ input {
 }
 
 .editButtons button {
-  border-radius: 20px;
+  width: 30px;
+  border-radius: 10px;
 }
 
 #textInput {
