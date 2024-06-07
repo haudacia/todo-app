@@ -1,7 +1,7 @@
-import { url } from "./utils";
+import { baseUrl } from "./utils";
 
 const handleCheckboxChange = ({ id, refreshTasks, done }) => {
-    fetch(`${url}/${id}`, {
+    fetch(`${baseUrl}/${id}`, {
         method: "PATCH",
         headers: {
             'Content-Type': 'application/json',

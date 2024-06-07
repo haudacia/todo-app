@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styles from "./CreateTask.module.css";
 import { useState } from 'react';
-import { url } from '../utils';
+import { baseUrl } from '../utils';
 
 const CreateTask = ({ refreshTasks }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -10,7 +10,7 @@ const CreateTask = ({ refreshTasks }) => {
 
   const onSubmit = async (formData) => {
     try {
-      const response = await fetch('https://todo-app-server-cc9x.onrender.com/tasks', {
+      const response = await fetch(`${baseUrl}/tasks`, {
         method: 'POST',
         //credentials: 'include', // Incluir credenciais se necessário
         headers: {

@@ -1,8 +1,8 @@
-import { url } from './utils'
+import { baseUrl } from './utils'
 
 const handleUpdateTask = ({ id, textValue, dateValue, refreshTasks, date }) => {
     //console.log('--------------dateValue received is:', dateValue);
-    fetch(`${url}/tasks/${id}`, {
+    fetch(`${baseUrl}/tasks/${id}`, {
         method: "PATCH",
         body: JSON.stringify({
             text: textValue,

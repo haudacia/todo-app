@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./TaskList.module.css";
 import Task from "../Task/Task";
-import { url } from "../utils";
+import { baseUrl } from "../utils";
 import CreateTask from "../CreateTask/CreateTask";
 import { handleToggleVisibility } from "../CreateTask/CreateTask";
 
@@ -16,7 +16,7 @@ const TaskList = () => {
     if (refresh) {
       const getTasks = async () => {
         try {
-          const response = await fetch('https://todo-app-server-cc9x.onrender.com/tasks');
+          const response = await fetch(`${baseUrl}/tasks`);
           if (response.ok) {
             const data = await response.json();
             setAllTasks(data);
@@ -46,7 +46,6 @@ const TaskList = () => {
               refresh={refresh}
               refreshTasks={refreshTasks}
             />
-            <hr />
           </div>
         ))}
       </div>

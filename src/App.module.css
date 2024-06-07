@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 h1 {
@@ -9,13 +8,6 @@ h1 {
   font-style: italic;
   letter-spacing: 5px;
 }
-
-/*h1 {
-  font-family: Abril Fatface;
-  font-size: 3em;
-  text-decoration: underline;
-}
-*/
 
 h2 {
   font-family: Xanh Mono;
@@ -27,8 +19,9 @@ h2 {
 }
 
 * {
-  background-color: #cec1c0;
+  background-color: #ded4c0;
   font-family: Roboto Mono;
+  font-size: 10px;
   /*font-family: "Red Hat Mono"; */
 }
 
@@ -40,11 +33,11 @@ h2 {
   justify-content: center;
   /* Horizontally center items */
   align-items: center;
-  margin: 0px 0;
+  margin: auto;
   /* Vertically center items */
 }
 
 .appContainer>* {
-  margin: 0px 0;
+  margin: auto;
   /* Adjust the margin as needed */
 }

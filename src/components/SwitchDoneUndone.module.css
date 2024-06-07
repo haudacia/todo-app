@@ -1,9 +1,8 @@
-#toggleStatus {
+#toggleStatusButton {
     min-width: 16px;
     max-width: 16px;
     min-height: 16px;
     max-height: 16px;
-    margin-top: 18px;
 }
 
 .isDone {

@@ -2,14 +2,13 @@
 
 .taskListContainer {
   flex-direction: column-reverse;
-  border: 1px solid rgba(0, 0, 0, 0);
-  width: 50%;
+  width: 70%;
   margin: auto;
 }
 
 p #text {
   font-family:
-    Chivo Mono,
+    Abril Fatface,
     monospace;
   font-size: 10px;
   font-weight: 50;
@@ -18,11 +17,4 @@ p #text {
 p #date {
   font-family: Abril Fatface;
   font-size: 10px;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid #000000;
-  height: 1px;
-  margin: 1em 0;
 }

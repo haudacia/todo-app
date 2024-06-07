@@ -1,6 +1,6 @@
-const url = "https://todo-app-server-cc9x.onrender.com";
+export const baseUrl = "https://todo-app-server-cc9x.onrender.com";
 
-const formatDateForUser = (dateString) => {
+export const formatDateForUser = (dateString) => {
   let displayedDate = undefined;
   const adjustTimezone = () => {
     const options = {
@@ -16,7 +16,8 @@ const formatDateForUser = (dateString) => {
       const objDateAdjustedTimeZone = new Date(dateString).toLocaleString('es-ES', options);
       return objDateAdjustedTimeZone
     }
-  }
+  };
+
   const isToday = () => {
     const today = new Date()
     const someDate = new Date(dateString)
@@ -50,18 +51,18 @@ const formatDateForUser = (dateString) => {
 //on browser, dates are type string for 
 // datetime-local input fields,
 // but fetches require date to be a Date object 
-const dateStrToObj = (dateString) => {
+export const dateStrToObj = (dateString) => {
   if (dateString) {
     return new Date(dateString)
   }
 }
 
-const showBrowserTimeZone = () => {
+export const showBrowserTimeZone = () => {
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
   console.log(tz);
 }
 
-const isToday = (someDateStr) => {
+export const isToday = (someDateStr) => {
   const today = new Date()
   const someDate = new Date(someDateStr)
   return someDate.getDate() == today.getDate() &&
@@ -69,20 +70,12 @@ const isToday = (someDateStr) => {
     someDate.getFullYear() == today.getFullYear()
 };
 
-export {
-  url,
-  formatDateForUser,
-  dateStrToObj,
-  showBrowserTimeZone,
-  isToday
-}
-
 /*   ADD TO DEDICATED FILE LATER (all fetch operations)
 import axios from "axios";
 
 const getTasks = async () => {
   return axios
-    .get(url)
+    .get(baseUrl)
     .then((response) => response.data)
     .catch((error) => {
       console.log(error);
@@ -94,7 +87,7 @@ const deleteTask = async (taskId) => {
 
   console.log('axios here')
   return axios
-    .delete(`${url}/${taskId}`)
+    .delete(`${baseUrl}/${taskId}`)
     .then((response) => response.data)
     .catch((error) => {
       console.log(error);
@@ -105,9 +98,9 @@ const deleteTask = async (taskId) => {
 
 /* previous unsuccessful attempt, without using axios
 const deleteTask = (taskId) => {
-  const url = "http://localhost:3000/todo";
+  const baseUrl = "http://localhost:3000/todo";
 
-  return fetch(`${url}/${taskId}`, {
+  return fetch(`${baseUrl}/${taskId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

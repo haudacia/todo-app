@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './SwitchDoneUndone.module.css'
-import { url } from "./utils";
+import { baseUrl } from "./utils";
 
 const ToggleTaskStatus = ({ id, done }) => {
   const [taskStatus, setTaskStatus] = useState(done);
@@ -13,7 +13,7 @@ const ToggleTaskStatus = ({ id, done }) => {
 
   const updateTaskStatus = async (updatedStatus) => {
     console.log(id)
-    await fetch(`${url}/tasks/${id}`, {
+    await fetch(`${baseUrl}/tasks/${id}`, {
       method: "PATCH",
       //credentials: 'include',
       headers: {
@@ -25,7 +25,7 @@ const ToggleTaskStatus = ({ id, done }) => {
 
   return (
     <button
-      id={styles.toggleStatus}
+      id={styles.toggleStatusButton}
       className={taskStatus ? styles.isDone : undefined}
       onClick={handleToggleClick}
       title={"mark as complete"}>

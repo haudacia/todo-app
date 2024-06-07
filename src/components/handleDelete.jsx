@@ -1,5 +1,5 @@
 
-import { url } from "./utils";
+import { baseUrl } from "./utils";
 
 const handleDelete = async ({ id, refreshTasks }) => {
   console.log(`Attempting to delete task with ID: ${id}`);  // Log para verificar o ID
@@ -54,7 +54,7 @@ export default handleDelete;
 //   console.log(id);
 //   const confirmed = window.confirm("Are you sure you want to delete this task?");
 //   if (confirmed) {
-//     fetch(`${url}/tasks/${id}`, {
+//     fetch(`${baseUrl}/tasks/${id}`, {
 //       method: "DELETE"
 //     })
 //       .then(() => refreshTasks())
