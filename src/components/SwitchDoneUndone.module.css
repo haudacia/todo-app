@@ -1,6 +1,7 @@
 #toggleStatusButton {
     width: 16px;
     height: 16px;
+    padding: 1px;
 }
 
 .isDone {
